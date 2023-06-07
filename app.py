@@ -50,7 +50,7 @@ def get_csv_download_button(file_path, ticker):
 
 earnings(key, ticker)
 
-footer = "MADE WITH  \u2764\ufe0f  BY SEHAJ  \U0001F618"
+footer = "MADE WITH  \u2764\ufe0f  BY SEHAJ "
 
 # Apply CSS styling to position the footer at the bottom
 footer_style = """
@@ -61,7 +61,8 @@ footer_style = """
     text-align: center;
     padding: 10px;
     font-weight: bold;
-    font-size: 14px;
+    letter-spacing: 1.25px;
+    font-size: 13px;
     color: #FC6600;
 """
 st.markdown('<p style="{}">{}</p>'.format(footer_style, footer), unsafe_allow_html=True)
