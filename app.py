@@ -29,7 +29,7 @@ def earnings(api_key, ticker_list):
         elif 'annualReports' in response_dict:
             data = response_dict['annualReports']
         else:
-            st.write("No data available for ticker:", ticker)
+            st.write("Ticker:", ticker)
             continue
         
         df = pd.DataFrame(data)
@@ -40,7 +40,6 @@ def earnings(api_key, ticker_list):
         download_button = get_csv_download_button(csv_file_path, ticker.strip())
         st.markdown(download_button, unsafe_allow_html=True)
 
-    st.write("Successful query from Alpha Vantage API")
 
 def get_csv_download_button(file_path, ticker):
     with open(file_path, 'rb') as file:
