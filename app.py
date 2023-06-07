@@ -1,4 +1,4 @@
-from alpha_vantage
+import alpha_vantage
 import time
 import requests
 import json
