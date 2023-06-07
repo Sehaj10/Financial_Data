@@ -1,4 +1,4 @@
-from alpha_vantage.timeseries import TimeSeries
+from alpha_vantage
 import time
 import requests
 import json
