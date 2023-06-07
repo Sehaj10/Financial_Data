@@ -50,4 +50,5 @@ def get_csv_download_button(file_path, ticker):
     return download_button
 
 earnings(key, ticker)
+st.markdown("<h6 style='text-align: center; color: Black;'>MADE WITH ❤️ BY SEHAJ 😘</h1>", unsafe_allow_html=True)
 
