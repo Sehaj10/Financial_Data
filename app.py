@@ -49,5 +49,19 @@ def get_csv_download_button(file_path, ticker):
     return download_button
 
 earnings(key, ticker)
-st.markdown("<h6 style='text-align: center; color: Black;'>MADE WITH ❤️ BY SEHAJ 😘</h1>", unsafe_allow_html=True)
+
+footer = "MADE WITH  \u2764\ufe0f  BY SEHAJ  \U0001F618"
+
+# Apply CSS styling to position the footer at the bottom
+footer_style = """
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: lightgray;
+    padding: 10px;
+    font-weight: bold;
+"""
+st.markdown('<p style="{}">{}</p>'.format(footer_style, footer), unsafe_allow_html=True)
 
