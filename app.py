@@ -11,7 +11,7 @@ st.title('Financial Information')
 
 interval = st.selectbox('Select Interval', ('annualReports', 'quaterlyReports'))
 
-user_input = st.text_input('Enter Stock Ticker (Enter multiple stocks sperated by ,' ')')
+user_input = st.text_input('Enter Stock Ticker' '(Enter multiple stocks sperated by ,' + " ")')
 ticker = user_input.split(',')
 
 key = 'IYS8IX32IVQT3XKB'
