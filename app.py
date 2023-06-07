@@ -62,6 +62,8 @@ footer_style = """
     background-color: lightgray;
     padding: 10px;
     font-weight: bold;
+    font-size: 12px;
+    color: #FC6600;
 """
 st.markdown('<p style="{}">{}</p>'.format(footer_style, footer), unsafe_allow_html=True)
 
