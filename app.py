@@ -14,7 +14,7 @@ interval = st.selectbox('Select Interval', ('annualReports', 'quaterlyReports'))
 user_input = st.text_input('Enter Stock Ticker')
 ticker = user_input.split(',')
 
-key = 'IYS8IX32IVQT3XKB'
+key = API_Key
 #pathway = r'/Users/sehaj/Downloads/F1/Output/'
 
 def earnings(api_key, ticker_list):
