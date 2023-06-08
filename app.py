@@ -19,7 +19,7 @@ key = 'IYS8IX32IVQT3XKB'
 
 def earnings(api_key, ticker_list):
     for ticker in ticker_list:
-        url = 'https://www.alphavantage.co/query?function=INCOME_STATEMENT&symbol={}&apikey={}'.format(ticker.strip(), api_key)
+        url = 'https://www.alphavantage.co/query?function=INCOME_STATEMENT&outputsize=full&symbol={}&apikey={}'.format(ticker.strip(), api_key)
 
         response = requests.get(url)
         response_dict = response.json()
