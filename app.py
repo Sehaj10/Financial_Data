@@ -6,15 +6,40 @@ from pandas import json_normalize
 import pandas as pd
 import streamlit as st
 import base64 
+from streamlit_option_menu import option_menu
 
-st.title('Financial Information')
+
+st.markdown("<h1 style='text-align: center; color: #31333F;'>Financial Information</h1>", unsafe_allow_html=True)
+#st.title('Financial Information')
 
 interval_dict = {
     'annualReports': 'Annual',
     'quaterlyReports': 'Quarterly'
 }
 
-info = st.selectbox('Select Type of Information', ('INCOME_STATEMENT', 'BALANCE_SHEET', 'CASH_FLOW'))
+
+#info = st.selectbox('Select Type of Information', ('INCOME_STATEMENT', 'BALANCE_SHEET', 'CASH_FLOW'))
+#st.markdown("<h3 style='text-align: center; color: #31333F;'>-------------------------------------------------------------------------------</h3>", unsafe_allow_html=True)
+info = option_menu(
+            menu_title=None,  # required
+            options=["INCOME_STATEMENT", "BALANCE_SHEET", "CASH_FLOW"],  # required
+            icons=["archive-fill", "activity", "cash-coin"],  # optional
+            menu_icon=None,  # optional
+            default_index=0,  # optional
+            orientation="horizontal",
+            styles={
+                "container": {"padding": "6px", "background-color": "#F0F2F6"},
+                "nav-link": {
+                    "font-size": "16px",
+                    "font-weight": "bold",
+                    "text-align": "Center",
+                    "margin": "3px",
+                    "--hover-color": "#e0e0e0 ",
+                },
+                "nav-link-selected": {"background-color": "#FC6600"},
+            },
+        )
+
 interval = st.selectbox('Select Interval', list(interval_dict.values()))
 selected_interval = [key for key, value in interval_dict.items() if value == interval][0]
 interval_label = interval_dict.get(selected_interval, '')
