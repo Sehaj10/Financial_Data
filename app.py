@@ -45,7 +45,7 @@ def get_csv_download_button(file_path, ticker):
     with open(file_path, 'rb') as file:
         csv_data = file.read()
     base64_encoded = base64.b64encode(csv_data).decode()
-    file = file_{interval}_{ticker}
+    file = 'file_{}_{}'.format(interval, ticker.strip())
     download_button = f'<a href="data:file/csv;base64,{base64_encoded}" download="{file}.csv"><button>Download CSV</button></a>'
     return download_button
 
