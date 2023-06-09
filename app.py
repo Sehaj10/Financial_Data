@@ -9,14 +9,20 @@ import base64
 
 st.title('Financial Information')
 
-info = st.selectbox('Select Type fo Information', ('INCOME_STATEMENT', 'BALANCE_SHEET', 'CASH_FLOW'))
-interval = st.selectbox('Select Interval', ('annualReports', 'quaterlyReports'))
+interval_dict = {
+    'annualReports': 'Annual',
+    'quaterlyReports': 'Quarterly'
+}
+
+info = st.selectbox('Select Type of Information', ('INCOME_STATEMENT', 'BALANCE_SHEET', 'CASH_FLOW'))
+interval = st.selectbox('Select Interval', list(interval_dict.values()))
+selected_interval = [key for key, value in interval_dict.items() if value == interval][0]
+interval_label = interval_dict.get(selected_interval, '')
 
 user_input = st.text_input('Enter Stock Ticker (Enter multiple stocks up to 5 at a time sperated by ,)')
 ticker = user_input.split(',')
 
 key = 'IYS8IX32IVQT3XKB'
-#pathway = r'/Users/sehaj/Downloads/F1/Output/'
 
 def earnings(api_key, ticker_list):
     for ticker in ticker_list:
@@ -35,18 +41,18 @@ def earnings(api_key, ticker_list):
         
         df = pd.DataFrame(data)
         st.dataframe(df.head())
-        csv_file_path = '{}_{}.csv'.format(ticker.strip(), interval)
+        csv_file_path = '{}_{}.csv'.format(ticker.strip(), interval_label)
         df.to_csv(csv_file_path, index=False)
         st.write("CSV file saved:", csv_file_path)
-        download_button = get_csv_download_button(csv_file_path, ticker.strip())
+        download_button = get_csv_download_button(csv_file_path, ticker.strip(), interval_label)
         st.markdown(download_button, unsafe_allow_html=True)
 
 
-def get_csv_download_button(file_path, ticker):
+def get_csv_download_button(file_path, ticker, interval_label):
     with open(file_path, 'rb') as file:
         csv_data = file.read()
     base64_encoded = base64.b64encode(csv_data).decode()
-    file_name = '{}_{}'.format(ticker.strip(), interval)
+    file_name = '{}_{}'.format(ticker.strip(), interval_label)
     download_button = f'<a href="data:file/csv;base64,{base64_encoded}" download="{file_name}.csv"><button>Download CSV</button></a>'
     return download_button
 
