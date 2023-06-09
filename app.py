@@ -9,6 +9,7 @@ import base64
 
 st.title('Financial Information')
 
+info = st.selectbox('Select Type fo Information', ('INCOME_STATEMENT', 'BALANCE_SHEET', 'CASH_FLOW'))
 interval = st.selectbox('Select Interval', ('annualReports', 'quaterlyReports'))
 
 user_input = st.text_input('Enter Stock Ticker (Enter multiple stocks sperated by ,)')
@@ -19,7 +20,7 @@ key = 'IYS8IX32IVQT3XKB'
 
 def earnings(api_key, ticker_list):
     for ticker in ticker_list:
-        url = 'https://www.alphavantage.co/query?function=INCOME_STATEMENT&outputsize=full&symbol={}&apikey={}'.format(ticker.strip(), api_key)
+        url = 'https://www.alphavantage.co/query?function={}&outputsize=full&symbol={}&apikey={}'.format(info, ticker.strip(), api_key)
 
         response = requests.get(url)
         response_dict = response.json()
