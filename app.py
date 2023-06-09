@@ -12,7 +12,7 @@ st.title('Financial Information')
 info = st.selectbox('Select Type fo Information', ('INCOME_STATEMENT', 'BALANCE_SHEET', 'CASH_FLOW'))
 interval = st.selectbox('Select Interval', ('annualReports', 'quaterlyReports'))
 
-user_input = st.text_input('Enter Stock Ticker (Enter multiple stocks sperated by ,)')
+user_input = st.text_input('Enter Stock Ticker (Enter multiple stocks up to 5 at a time sperated by ,)')
 ticker = user_input.split(',')
 
 key = 'IYS8IX32IVQT3XKB'
