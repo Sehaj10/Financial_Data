@@ -34,7 +34,7 @@ def earnings(api_key, ticker_list):
         
         df = pd.DataFrame(data)
         st.dataframe(df.head())
-        csv_file_path = 'file_{}_{}.csv'.format(interval, ticker.strip())
+        csv_file_path = '{}_{}.csv'.format(ticker.strip(), interval)
         df.to_csv(csv_file_path, index=False)
         st.write("CSV file saved:", csv_file_path)
         download_button = get_csv_download_button(csv_file_path, ticker.strip())
@@ -45,8 +45,8 @@ def get_csv_download_button(file_path, ticker):
     with open(file_path, 'rb') as file:
         csv_data = file.read()
     base64_encoded = base64.b64encode(csv_data).decode()
-    file = 'file_{}_{}'.format(interval, ticker.strip())
-    download_button = f'<a href="data:file/csv;base64,{base64_encoded}" download="{file}.csv"><button>Download CSV</button></a>'
+    file_name = '{}_{}'.format(ticker.strip(), interval)
+    download_button = f'<a href="data:file/csv;base64,{base64_encoded}" download="{file_name}.csv"><button>Download CSV</button></a>'
     return download_button
 
 earnings(key, ticker)
