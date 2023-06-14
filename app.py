@@ -22,8 +22,8 @@ interval_dict = {
 #st.markdown("<h3 style='text-align: center; color: #31333F;'>-------------------------------------------------------------------------------</h3>", unsafe_allow_html=True)
 info = option_menu(
             menu_title=None,  
-            options=["Raw Data", "Forecast Data"], 
-            icons=["archive-fill", "activity"],  
+            options=["INCOME_STATEMENT", "BALANCE_SHEET", "CASH_FLOW"],  
+            icons=["archive-fill", "activity", "cash-coin"],  
             menu_icon=None,  
             default_index=0,  
             orientation="horizontal",
@@ -32,7 +32,8 @@ info = option_menu(
                     "font-size": "16px",
                     "font-weight": "bold",
                     "text-align": "Center",
-                },
+                }
+
             },
         )
 
