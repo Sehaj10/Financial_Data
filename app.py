@@ -21,22 +21,18 @@ interval_dict = {
 #info = st.selectbox('Select Type of Information', ('INCOME_STATEMENT', 'BALANCE_SHEET', 'CASH_FLOW'))
 #st.markdown("<h3 style='text-align: center; color: #31333F;'>-------------------------------------------------------------------------------</h3>", unsafe_allow_html=True)
 info = option_menu(
-            menu_title=None,  # required
-            options=["INCOME_STATEMENT", "BALANCE_SHEET", "CASH_FLOW"],  # required
-            icons=["archive-fill", "activity", "cash-coin"],  # optional
-            menu_icon=None,  # optional
-            default_index=0,  # optional
+            menu_title=None,  
+            options=["Raw Data", "Forecast Data"], 
+            icons=["archive-fill", "activity"],  
+            menu_icon=None,  
+            default_index=0,  
             orientation="horizontal",
             styles={
-                "container": {"padding": "6px", "background-color": "#F0F2F6"},
                 "nav-link": {
                     "font-size": "16px",
                     "font-weight": "bold",
                     "text-align": "Center",
-                    "margin": "3px",
-                    "--hover-color": "#e0e0e0 ",
                 },
-                "nav-link-selected": {"background-color": "#FC6600"},
             },
         )
 
