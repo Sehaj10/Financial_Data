@@ -29,7 +29,7 @@ info = option_menu(
             orientation="horizontal",
             styles={
                 "nav-link": {
-                    "font-size": "16px",
+                    "font-size": "12px",
                     "font-weight": "bold",
                     "text-align": "Center",
                 }
