@@ -9,7 +9,7 @@ import base64
 from streamlit_option_menu import option_menu
 
 
-st.markdown("<h1 style='text-align: center; color: #31333F;'>Financial Information</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>Financial Information</h1>", unsafe_allow_html=True)
 #st.title('Financial Information')
 
 interval_dict = {
