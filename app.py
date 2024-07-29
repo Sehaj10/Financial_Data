@@ -96,4 +96,3 @@ footer_style = """
     color: #FC6600;
 """
 st.markdown('<p style="{}">{}</p>'.format(footer_style, footer), unsafe_allow_html=True)
-
